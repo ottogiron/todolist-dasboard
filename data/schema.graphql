@@ -1,0 +1,20 @@
+
+type Query { 
+  allTodos: [Todo]
+  todo(id: String): Todo
+}
+
+type Todo {
+  id: ID!
+  version: Int
+  items: [Item]
+  createdAt: String
+  updatedAt: String
+}
+
+type Item {
+    id: String
+    desc: String
+    completed: Boolean
+    todo: Todo
+}

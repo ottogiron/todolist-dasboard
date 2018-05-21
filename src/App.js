@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import Footer from './Footer';
 
 import './App.css';
+import 'todomvc-common/base.css';
+import 'todomvc-app-css/index.css';
 import {graphql, QueryRenderer} from 'react-relay';
 import environment from './Environment'
 
@@ -33,7 +36,7 @@ class App extends Component {
           return <li key={item._id}>{item.desc}</li>
         })
 
-        return <ul>{items}</ul>;
+        return <Footer></Footer>;
       }}
     />
     );

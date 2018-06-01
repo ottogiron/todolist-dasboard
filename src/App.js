@@ -8,6 +8,9 @@ import {graphql, QueryRenderer} from 'react-relay';
 import environment from './Environment'
 
 class App extends Component {
+  handleNewTodoKeyDown(event){
+    console.log("Doing something") 
+  }
   render() {
     return (
       <QueryRenderer
@@ -36,7 +39,23 @@ class App extends Component {
           return <li key={item._id}>{item.desc}</li>
         })
 
-        return <Footer></Footer>;
+      return (
+        <section className="todoapp">
+          <div>
+            <header className="header">
+              <h1>todos</h1>
+              <input ref="newField"
+              className="new-todo"
+              placeholder="What needs to be done?"
+              onKeyDown={ e => this.handleNewTodoKeyDown(e) }
+              autoFocus="{true}"/>
+
+            </header>
+            <Footer></Footer>
+          </div>
+        </section>
+     
+      );
       }}
     />
     );

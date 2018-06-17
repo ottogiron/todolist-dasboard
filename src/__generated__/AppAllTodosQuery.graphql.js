@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 3f591e7bf58386c1c1620500629242b1
+ * @relayHash 27ae0033ab6f39d62c96c0bdb2c1eaae
  */
 
 /* eslint-disable */
@@ -16,7 +16,8 @@ export type AppAllTodosQueryResponse = {|
     +version: ?number,
     +items: ?$ReadOnlyArray<?{|
       +_id: ?string,
-      +desc: ?string,
+      +title: ?string,
+      +completed: ?boolean,
     |}>,
   |}>
 |};
@@ -30,7 +31,8 @@ query AppAllTodosQuery {
     version
     items {
       _id: id
-      desc
+      title: desc
+      completed
     }
   }
 }
@@ -79,8 +81,15 @@ var v0 = [
           },
           {
             "kind": "ScalarField",
-            "alias": null,
+            "alias": "title",
             "name": "desc",
+            "args": null,
+            "storageKey": null
+          },
+          {
+            "kind": "ScalarField",
+            "alias": null,
+            "name": "completed",
             "args": null,
             "storageKey": null
           }
@@ -94,7 +103,7 @@ return {
   "operationKind": "query",
   "name": "AppAllTodosQuery",
   "id": null,
-  "text": "query AppAllTodosQuery {\n  allTodos {\n    id\n    version\n    items {\n      _id: id\n      desc\n    }\n  }\n}\n",
+  "text": "query AppAllTodosQuery {\n  allTodos {\n    id\n    version\n    items {\n      _id: id\n      title: desc\n      completed\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -113,5 +122,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '1a1ff2f5bd8b511a3bdc919ca155b11d';
+(node/*: any*/).hash = '82c7c6736c5acc5eb827f07cbc971024';
 module.exports = node;

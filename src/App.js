@@ -4,8 +4,7 @@ import TodoItem from './TodoItem';
 import './App.css';
 import 'todomvc-common/base.css';
 import 'todomvc-app-css/index.css';
-import {graphql, QueryRenderer} from 'react-relay';
-import environment from './Environment'
+
 
 import { ACTIVE_TODOS, COMPLETED_TODOS, ALL_TODOS, ENTER_KEY} from './Constants';
 
@@ -18,11 +17,11 @@ class App extends Component {
   };
  
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({newTodo: event.target.value});
   }
 
-  handleNewTodoKeyDown(event) {
+  handleNewTodoKeyDown = (event) => {
     if (event.keyCode !== ENTER_KEY) {
       return;
     }
@@ -68,34 +67,9 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <QueryRenderer
-      environment={environment}
-      query={graphql`
-        query AppAllTodosQuery {
-          allTodos {
-            id
-            version
-            items {
-              _id: id
-              title: desc
-              completed
-            }
-          }  
-        }
-      `}
-      variables={{}}
-      render={({error, props}) => {
-        if (error) {
-          return <div>Error!</div>;
-        }
-        if (!props) {
-          return <div>Loading...</div>;
-        }
-
         var footer;
         var main;
-        const todos = props.allTodos[0].items;
+        const todos = this.props.allTodos[0].items;
 
         var shownTodos = todos.filter(function (todo) {
           switch (this.state.nowShowing) {
@@ -170,9 +144,6 @@ class App extends Component {
 					{footer}
 				</div>
       );
-      }}
-    />
-    );
   }
 }
 

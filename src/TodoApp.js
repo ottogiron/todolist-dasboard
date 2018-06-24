@@ -73,8 +73,7 @@ class TodoApp extends Component {
   render() {
         var footer;
         var main;
-  
-        const todos = this.props.todo.items
+        const todos = this.props.todoList.items;
 
         var shownTodos = todos.filter(function (todo) {
           switch (this.state.nowShowing) {
@@ -154,8 +153,8 @@ class TodoApp extends Component {
 
 
 export default createFragmentContainer(TodoApp,{
-  todo : graphql`
-    fragment TodoApp_todo on Todo {
+  todoList : graphql`
+    fragment TodoApp_todoList on TodoList {
       id
       version
       items {

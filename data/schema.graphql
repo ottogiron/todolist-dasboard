@@ -1,10 +1,11 @@
 
 type Query { 
-  allTodos: [Todo]
-  todo(id: String): Todo
+  allTodoLists:[TodoList]
+  todoList(id: String): TodoList
 }
 
-type Todo {
+
+type TodoList {
   id: ID!
   version: Int
   items: [Item]
@@ -12,9 +13,13 @@ type Todo {
   updatedAt: String
 }
 
+
 type Item {
-    id: String
+    id: Int
     desc: String
     completed: Boolean
-    todo: Todo
+    todoList: TodoList
 }
+
+
+

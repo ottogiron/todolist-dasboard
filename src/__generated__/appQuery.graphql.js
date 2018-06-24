@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 47641587facaaedb7e9d0efe9fe6c9f1
+ * @relayHash 7dc46d8ebda3fa28e274a7a20c21b94a
  */
 
 /* eslint-disable */
@@ -9,13 +9,13 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-type TodoApp_todo$ref = any;
+type TodoApp_todoList$ref = any;
 export type appQueryVariables = {|
   id?: ?string
 |};
 export type appQueryResponse = {|
-  +todo: ?{|
-    +$fragmentRefs: TodoApp_todo$ref
+  +todoList: ?{|
+    +$fragmentRefs: TodoApp_todoList$ref
   |}
 |};
 */
@@ -25,13 +25,13 @@ export type appQueryResponse = {|
 query appQuery(
   $id: String
 ) {
-  todo(id: $id) {
-    ...TodoApp_todo
+  todoList(id: $id) {
+    ...TodoApp_todoList
     id
   }
 }
 
-fragment TodoApp_todo on Todo {
+fragment TodoApp_todoList on TodoList {
   id
   version
   items {
@@ -64,7 +64,7 @@ return {
   "operationKind": "query",
   "name": "appQuery",
   "id": null,
-  "text": "query appQuery(\n  $id: String\n) {\n  todo(id: $id) {\n    ...TodoApp_todo\n    id\n  }\n}\n\nfragment TodoApp_todo on Todo {\n  id\n  version\n  items {\n    _id: id\n    title: desc\n    completed\n  }\n}\n",
+  "text": "query appQuery(\n  $id: String\n) {\n  todoList(id: $id) {\n    ...TodoApp_todoList\n    id\n  }\n}\n\nfragment TodoApp_todoList on TodoList {\n  id\n  version\n  items {\n    _id: id\n    title: desc\n    completed\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -76,15 +76,15 @@ return {
       {
         "kind": "LinkedField",
         "alias": null,
-        "name": "todo",
+        "name": "todoList",
         "storageKey": null,
         "args": v1,
-        "concreteType": "Todo",
+        "concreteType": "TodoList",
         "plural": false,
         "selections": [
           {
             "kind": "FragmentSpread",
-            "name": "TodoApp_todo",
+            "name": "TodoApp_todoList",
             "args": null
           }
         ]
@@ -99,10 +99,10 @@ return {
       {
         "kind": "LinkedField",
         "alias": null,
-        "name": "todo",
+        "name": "todoList",
         "storageKey": null,
         "args": v1,
-        "concreteType": "Todo",
+        "concreteType": "TodoList",
         "plural": false,
         "selections": [
           {
@@ -158,5 +158,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '2cee1ebc510ac490cd2667bdcbe28267';
+(node/*: any*/).hash = '68f87dfe1b70c45c758d94e963022856';
 module.exports = node;

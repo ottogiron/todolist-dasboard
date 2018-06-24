@@ -10,8 +10,8 @@ ReactDOM.render(<QueryRenderer
     environment={environment}
     query={graphql`
         query appQuery($id: String) {
-          todo(id:$id) {
-            ...TodoApp_todo
+          todoList(id:$id) {
+            ...TodoApp_todoList
           }  
         }
       `}
@@ -20,7 +20,7 @@ ReactDOM.render(<QueryRenderer
     }}
     render={({error, props}) => {
       if (props) {
-        return <TodoApp todo ={props.todo}/>;
+        return <TodoApp todoList={props.todoList}/>;
       } else {
         return <div>Loading</div>;
       }

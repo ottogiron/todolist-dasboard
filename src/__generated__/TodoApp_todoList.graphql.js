@@ -9,24 +9,24 @@
 /*::
 import type { ConcreteFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type TodoApp_todo$ref: FragmentReference;
-export type TodoApp_todo = {|
+declare export opaque type TodoApp_todoList$ref: FragmentReference;
+export type TodoApp_todoList = {|
   +id: string,
   +version: ?number,
   +items: ?$ReadOnlyArray<?{|
-    +_id: ?string,
+    +_id: ?number,
     +title: ?string,
     +completed: ?boolean,
   |}>,
-  +$refType: TodoApp_todo$ref,
+  +$refType: TodoApp_todoList$ref,
 |};
 */
 
 
 const node/*: ConcreteFragment*/ = {
   "kind": "Fragment",
-  "name": "TodoApp_todo",
-  "type": "Todo",
+  "name": "TodoApp_todoList",
+  "type": "TodoList",
   "metadata": null,
   "argumentDefinitions": [],
   "selections": [
@@ -79,5 +79,5 @@ const node/*: ConcreteFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '64dd89a3186269e6fde7b3aec059f6d7';
+(node/*: any*/).hash = 'e919f150b4bb948e795b49be50b0ebc1';
 module.exports = node;
